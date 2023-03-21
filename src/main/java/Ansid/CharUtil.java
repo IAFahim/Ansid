@@ -42,7 +42,7 @@ public class CharUtil {
     }
 
     public static boolean isSpecial(char c) {
-        return c == '@' || c == '#' || c == '$' || c == '&' || c == '!' || c == '?' || c == '~' || c == '`' || c == '_';
+        return c == '@' || c == '#' || c == '$' || c == '&' || c == '!' || c == '?' || c == '~' || c == '`';
     }
 
     public static boolean isSymbol(char c) {

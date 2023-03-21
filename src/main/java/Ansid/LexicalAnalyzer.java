@@ -1,24 +1,52 @@
 package Ansid;
 
+import java.util.ArrayList;
+
 public class LexicalAnalyzer {
+    ArrayList<Error> errorList;
+    ArrayList<Token> tokenList;
 
-    ErrorList errorList;
+    public LexicalAnalyzer() {
+        errorList = new ArrayList<>();
+        tokenList = new ArrayList<>();
+    }
 
-    public LexicalAnalyzer(String str) {
-        errorList = new ErrorList();
+    public void Analyze(String str) {
         if (str == null || str.length() == 0) {
-            errorList.AddError(0, 0, "No input");
+            errorList.add(new Error(0, "No input"));
             return;
         }
-        if (!CharUtil.isLetter(str.charAt(0))) {
-            errorList.AddError(0, 0, "First character must be a letter");
+        char[] chars = str.toCharArray();
+        if (!CharUtil.isLetter(chars[0])) {
+            errorList.add(new Error(0, "Not a statement"));
             return;
         }
+        StringBuilder lexeme = new StringBuilder(chars.length);
+    }
 
-        StringBuilder lexeme = new StringBuilder(str.length());
-        for (int i = 1; i < str.length(); i++) {
+    public ArrayList<Token> getTokenList() {
+        return tokenList;
+    }
 
+    public ArrayList<Error> getErrorList() {
+        return errorList;
+    }
+
+    public void PrintTokenList() {
+        for (int i = 0, tokenListSize = tokenList.size(); i < tokenListSize; i++) {
+            System.out.printf("Token %d: %s%n", i, tokenList.get(i));
         }
+    }
+
+    public void PrintErrorList() {
+        for (int i = 0, errorListSize = errorList.size(); i < errorListSize; i++) {
+            System.out.printf("%d: %s%n", i, errorList.get(i));
+        }
+    }
+
+    public void Clear() {
+        tokenList = new ArrayList<>();
+        errorList = new ArrayList<>();
     }
 
     public char GetChar(String str, int i) {
@@ -43,5 +71,6 @@ public class LexicalAnalyzer {
 
     public void Lookup() {
     }
+
 
 }
