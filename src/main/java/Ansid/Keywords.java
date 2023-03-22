@@ -8,9 +8,7 @@ public final class Keywords {
     static {
         map.put("if", TokenType.IF);
         map.put("int", TokenType.INT_LET);
-        map.put("if", TokenType.IF);
         map.put("else", TokenType.ELSE);
-        map.put("int", TokenType.INT_LET);
         map.put("float", TokenType.FLOAT_LET);
         map.put("=", TokenType.ASSIGN_OP);
         map.put("+", TokenType.ADD_OP);
@@ -18,9 +16,9 @@ public final class Keywords {
         map.put("*", TokenType.MUL_OP);
         map.put("/", TokenType.DIV_OP);
         map.put("%", TokenType.MOD_OP);
-        map.put("++", TokenType.INC_OP);
-        map.put("--", TokenType.DEC_OP);
-        map.put("==", TokenType.EQ_OP);
+        map.put(";", TokenType.DELIMITER);
+        map.put("(", TokenType.LEFT_PAREN);
+        map.put(")", TokenType.RIGHT_PAREN);
     }
 
     public static TokenType getTokenType(String keyword) {

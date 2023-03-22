@@ -1,18 +1,15 @@
 package Ansid;
 
 public enum TokenType {
-    IDENT,
-    ASSIGN_OP,
     ADD_OP,
-    SUB_OP,
-    MUL_OP,
+    ASSIGN_OP,
+    DELIMITER,
     DIV_OP,
-    MOD_OP,
-    INC_OP,
-    DEC_OP,
-    EQ_OP,
-    INT_LET,
-    FLOAT_LET,
-    IF,
     ELSE,
+    FLOAT_LET,
+    IDENT,
+    IF,
+    INT_LET,
+    LEFT_PAREN,
+    MOD_OP, MUL_OP, RIGHT_PAREN, SUB_OP, COMMENT
 }
